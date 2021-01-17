@@ -6,7 +6,9 @@ import seaborn as sns
 from sqlalchemy import create_engine
 
 def load_data(messages_filepath, categories_filepath):
-    
+    """
+    This function loads the message and catrgory data and merges them together
+    """
     ## load data sets
     messages = pd.read_csv(messages_filepath)
     categories = pd.read_csv(categories_filepath)
@@ -18,7 +20,9 @@ def load_data(messages_filepath, categories_filepath):
 
 
 def clean_data(df):
-    
+    """
+    The merged data is preprocessed and cleaned
+    """
     ## split categories
     categories = df.categories.str.split(';', expand= True)
     
@@ -54,7 +58,9 @@ def clean_data(df):
 
 
 def save_data(df, database_filename):
-    
+    """
+    The cleaned data is saved to a created database
+    """
     engine = create_engine('sqlite:///' + database_filename)
     df.to_sql('disaster_messages', engine, index=False)
 
