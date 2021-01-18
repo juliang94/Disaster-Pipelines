@@ -61,8 +61,10 @@ def save_data(df, database_filename):
     """
     The cleaned data is saved to a created database
     """
+    ## Create SQL engine
     engine = create_engine('sqlite:///' + database_filename)
-    df.to_sql('disaster_messages', engine, index=False)
+    ## save to SQL
+    df.to_sql('disaster_messages', engine, index=False, if_exists='replace')
 
 
 def main():
