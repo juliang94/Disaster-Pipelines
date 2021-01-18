@@ -59,7 +59,7 @@ def index():
     category_names = category_pct['category']
     
     # create visuals
-    # TODO: Below is an example - modify to create your own visuals
+    # Create a bar plot of the most frequent mesage genres and a horizontal bar plot of the most frequent categories
     graphs = [
         {
             'data': [
